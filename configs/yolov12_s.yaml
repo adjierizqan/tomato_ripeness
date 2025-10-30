@@ -1,5 +1,5 @@
 framework: ultralytics
-model: "yolo12s.pt"
+model: "yolov12s.pt"
 task: detect
 imgsz: 1280
 batch: auto
