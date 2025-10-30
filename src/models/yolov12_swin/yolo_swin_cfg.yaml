@@ -1,0 +1,29 @@
+# Ultralytics style YAML with custom Swin backbone
+nc: 3
+backbone_module: src.models.yolov12_swin.backbone_swin
+backbone_builder: build_swin_backbone
+backbone_args:
+  model_name: swin_tiny_patch4_window7_224
+  out_indices: [1, 2, 3]
+  pretrained_path: null
+  freeze_at_start: true
+freeze_backbone_epochs: 15
+
+backbone:
+  # Placeholder to satisfy Ultralytics parser; actual backbone built dynamically.
+  - [-1, 1, identity, []]
+
+neck:
+  - [-1, 1, Conv, [512, 256, 1, 1]]
+  - [-1, 1, nn.Upsample, [None, 2, 'nearest']]
+  - [[-1, 0], 1, Concat, [1]]
+  - [-1, 3, C2f, [256, True]]
+  - [-1, 1, Conv, [256, 256, 3, 2]]
+  - [[-1, 1], 1, Concat, [1]]
+  - [-1, 3, C2f, [512, True]]
+  - [-1, 1, Conv, [512, 512, 3, 2]]
+  - [[-1, 2], 1, Concat, [1]]
+  - [-1, 3, C2f, [768, True]]
+
+head:
+  - [[0, 1, 2], 1, Detect, [nc]]
