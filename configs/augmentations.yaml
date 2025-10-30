@@ -1,0 +1,38 @@
+profiles:
+  lite:
+    hsv_h: 0.015
+    hsv_s: 0.5
+    hsv_v: 0.3
+    flipud: 0.0
+    fliplr: 0.5
+    mosaic: 0.2
+    mixup: 0.05
+    copy_paste: 0.05
+    translate: 0.05
+    scale: 0.1
+    shear: 0.0
+    perspective: 0.0
+    auto_orient: true
+    clahe: false
+    img_size: 1280
+    multi_scale: [960, 1280]
+  strong:
+    hsv_h: 0.02
+    hsv_s: 0.6
+    hsv_v: 0.35
+    flipud: 0.1
+    fliplr: 0.6
+    mosaic: 0.3
+    mixup: 0.1
+    copy_paste: 0.1
+    translate: 0.08
+    scale: 0.15
+    shear: 0.02
+    perspective: 0.01
+    motion_blur: 0.05
+    random_fog: 0.05
+    random_brightness: 0.1
+    auto_orient: true
+    clahe: true
+    img_size: 1280
+    multi_scale: [960, 1280, 1536]

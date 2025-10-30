@@ -1,0 +1,8 @@
+path: ./datasets/tomato
+train: images/train
+val: images/val
+test: images/test
+names:
+  0: green
+  1: orange
+  2: red

@@ -1,0 +1,28 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.so
+.venv/
+.env/
+.envrc
+
+# Runs & logs
+runs/
+!runs/.gitkeep
+wandb/
+logs/
+outputs/
+
+# Datasets
+datasets/tomato/images/
+datasets/tomato/labels/
+datasets/tomato/annotations/
+!datasets/tomato/images/**/.gitkeep
+!datasets/tomato/labels/**/.gitkeep
+
+# IDE
+.vscode/
+.idea/
+.DS_Store

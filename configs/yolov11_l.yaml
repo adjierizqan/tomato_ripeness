@@ -1,0 +1,24 @@
+framework: ultralytics
+model: "yolov11l.pt"
+task: detect
+imgsz: 1280
+batch: auto
+epochs: 280
+optimizer: AdamW
+lr0: 0.002
+lrf: 0.2
+warmup_epochs: 3
+weight_decay: 0.0005
+momentum: 0.94
+label_smoothing: 0.05
+patience: 30
+seed: 42
+deterministic: true
+augmentations: configs/augmentations.yaml::lite
+val_interval: 10
+save_json: true
+project: runs/yolov11_l
+name: tomato
+notes: |
+  YOLOv11-Large baseline for comparison. Enable EMA and classifier head adaptation
+  for three tomato ripeness classes.

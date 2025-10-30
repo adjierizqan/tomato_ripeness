@@ -1,0 +1,23 @@
+framework: rf_detr
+model: "rtdetr_r50vd_6x_coco.pth"
+backbone: resnet50
+imgsz: 1280
+batch: 2
+epochs: 300
+optimizer: AdamW
+lr0: 0.0002
+weight_decay: 0.0001
+lr_drop_epochs: [200, 260]
+warmup_epochs: 5
+patience: 30
+seed: 42
+deterministic: true
+augmentations: configs/augmentations.yaml::lite
+val_interval: 5
+save_json: true
+project: runs/rf_detr_r50
+name: tomato
+rf_detr_config: "projects/rf_detr/configs/rf_detr_r50_tomato.yaml"
+notes: |
+  RF-DETR ResNet-50 backbone trained with AdamW and cosine decay.
+  Use YOLO-format conversion to COCO via src/data/yolo_to_coco.py.
