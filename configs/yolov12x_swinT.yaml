@@ -1,0 +1,26 @@
+framework: ultralytics
+model: src/models/yolov12_swin/yolo_swin_cfg.yaml
+task: detect
+imgsz: 1280
+batch: auto
+epochs: 320
+optimizer: AdamW
+lr0: 0.0015
+lrf: 0.12
+warmup_epochs: 5
+weight_decay: 0.0003
+momentum: 0.94
+label_smoothing: 0.05
+patience: 35
+seed: 42
+deterministic: true
+augmentations: configs/augmentations.yaml::lite
+val_interval: 5
+save_json: true
+project: runs/yolov12x_swinT
+name: tomato
+pretrained_backbone: "swin_tiny_patch4_window7_224.pth"
+notes: |
+  YOLOv12x head/neck with Swin-Tiny backbone converted for 1280 resolution.
+  Freeze backbone for the first 15 epochs for stability, then unfreeze.
+  Train with lite augmentations; consider switching to strong for recall boosts.

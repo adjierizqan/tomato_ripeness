@@ -1,0 +1,20 @@
+ultralytics>=8.3.0
+torch>=2.3.0
+torchvision
+torchaudio
+timm>=0.9.16
+albumentations>=1.3.1
+ensemble-boxes>=1.0.9
+pycocotools>=2.0.7
+opencv-python>=4.8.0
+pandas
+matplotlib
+seaborn
+tqdm
+tensorboard
+wandb
+scipy
+numpy
+Pillow
+ruamel.yaml
+rfdetr @ git+https://github.com/roboflow/rf-detr.git

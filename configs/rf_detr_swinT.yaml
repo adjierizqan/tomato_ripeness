@@ -1,0 +1,23 @@
+framework: rf_detr
+model: "rf_detr_swin_tiny_6x_coco.pth"
+backbone: swin_t
+imgsz: 1280
+batch: 2
+epochs: 320
+optimizer: AdamW
+lr0: 0.00015
+weight_decay: 0.0001
+lr_drop_epochs: [220, 280]
+warmup_epochs: 5
+patience: 35
+seed: 42
+deterministic: true
+augmentations: configs/augmentations.yaml::strong
+val_interval: 5
+save_json: true
+project: runs/rf_detr_swinT
+name: tomato
+rf_detr_config: "projects/rf_detr/configs/rf_detr_swinT_tomato.yaml"
+notes: |
+  RF-DETR Swin-Tiny backbone. Freeze stage 1 for 10 epochs, then unfreeze.
+  Strong augmentations improve robustness to outdoor illumination shifts.
